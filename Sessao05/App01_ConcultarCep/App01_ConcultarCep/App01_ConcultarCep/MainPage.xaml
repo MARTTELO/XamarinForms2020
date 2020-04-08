@@ -6,11 +6,16 @@
              mc:Ignorable="d"
              x:Class="App01_ConcultarCep.MainPage">
 
-    <StackLayout>
+    <StackLayout BackgroundColor="#ffbf00" Padding="30" Spacing="30">
+        <Image Source="LogoCorreios.png" x:Name="LOGO"/>
+        <Entry Placeholder="Digite o Cep" PlaceholderColor="#ffbf00" BackgroundColor="#fff" x:Name="CEP"></Entry>
+        <Button Text="Buscar CEP" TextColor="#fff" BackgroundColor="#00416b" x:Name="BOTAO"></Button>
+
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="ENZO ROCHA LUDWIG" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="CenterAndExpand" x:Name="RESULTADO"/>
+
     </StackLayout>
 
 </ContentPage>

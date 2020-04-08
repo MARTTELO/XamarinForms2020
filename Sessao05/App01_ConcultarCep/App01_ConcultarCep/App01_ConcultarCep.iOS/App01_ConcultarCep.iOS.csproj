@@ -133,4 +133,7 @@
       <Name>App01_ConcultarCep</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LogoCorreios.png" />
+  </ItemGroup>
 </Project>
