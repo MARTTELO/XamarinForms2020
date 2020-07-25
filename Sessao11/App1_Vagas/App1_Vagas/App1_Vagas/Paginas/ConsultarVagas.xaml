@@ -4,20 +4,23 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App1_Vagas.Paginas.ConsultaVagas">
+             x:Class="App1_Vagas.Paginas.ConsultarVagas">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Vagas" FontSize="24"></Label>
-                <Label Text="Encontre seu emprego Aqui" FontSize="16"></Label>
+                <Label Text="Vagas" FontSize="24" />
+                <Label Text="Encontre seu emprego Aqui" FontSize="16" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Button Text="AdicionarVagas" Clicked="GoCadastro"/>
-                <Button Text="MinhasVagas" Clicked="GoMinhasVagas"/>
+                <Button Text="Adicionar" Clicked="GoCadastro"/>
+                <Button Text="Minhas Vagas" Clicked="GoMinhasVagas"/>
             </StackLayout>
-            <ListView>
+            <Entry Placeholder="Pesquisar" TextChanged="PesquisarAction" />
+            <Label Text="" x:Name="lblCount" />
+            <ListView x:Name="ListarVagas" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
+                        <ViewCell>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -26,16 +29,20 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Text="{Binding NomeVaga}" FontAttributes="Bold"/>
-                            <Label Grid.Column="0" Text="{Binding NomeEmpresa}"/>
-                            <Label Grid.Column="0" Text="{Binding Cidadde}"/>
+                                <StackLayout Grid.Column="0">
+                                     <Label  Text="{Binding NomeVaga}" FontAttributes="Bold"/>
+                                     <Label Text="{Binding NomeEmpresa}"/>
+                                     <Label Text="{Binding Cidadde}"/>
 
-                            <Label Text="+ Detalhe">
+                                </StackLayout>
+                           
+                            <Label Text="+ Detalhe" Grid.Column="1">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="MaisDetalhe" CommandParameter="{Binding .}"/>
+                                    <TapGestureRecognizer Tapped="MaisDetalheAction" CommandParameter="{Binding .}"/>
                                 </Label.GestureRecognizers>
                             </Label>
                         </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

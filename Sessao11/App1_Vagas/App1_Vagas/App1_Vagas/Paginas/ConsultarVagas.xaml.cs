@@ -5,22 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using App1_Vagas.Modelos;
 using App1_Vagas.Banco;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace App1_Vagas.Paginas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MinhasVagasCadastradas : ContentPage
+    public partial class ConsultarVagas : ContentPage
     {
         List<Vagas> Lista { get; set; }
-        public MinhasVagasCadastradas()
+        public ConsultarVagas()
         {
             InitializeComponent();
-            ConsultarVagas();
-        }
-        private void ConsultarVagas()
-        {
+
             DataBase database = new DataBase();
             Lista = database.Consultar();
             ListarVagas.ItemsSource = Lista;
@@ -28,24 +26,24 @@ namespace App1_Vagas.Paginas
             lblCount.Text = Lista.Count.ToString();
         }
 
-        public void EditarAction(object sender, EventArgs args)
+        public void GoCadastro(object sender, EventArgs args) {
+            Navigation.PushAsync(new CadastrarVaga());
+        }
+      
+        public void GoMinhasVagas(object sender, EventArgs args)
         {
-            Label lblEditar = (Label)sender;
-            TapGestureRecognizer tapGest = (TapGestureRecognizer)lblEditar.GestureRecognizers[0];
+            Navigation.PushAsync(new MinhasVagasCadastradas());
+        }
+
+        public void MaisDetalheAction(Object sender, EventArgs args)
+        {
+            Label lblDetalhe = (Label)sender;
+            TapGestureRecognizer tapGest = (TapGestureRecognizer)lblDetalhe.GestureRecognizers[0];
             Vagas vaga = tapGest.CommandParameter as Vagas;
 
-            Navigation.PushAsync(new EditarVaga(vaga));
+            Navigation.PushAsync(new DetalharVaga(vaga));
         }
-        public void ExcluirAction(object sender, EventArgs args)
-        {
-            Label lblExcluir = (Label)sender;
-            TapGestureRecognizer tapGest = (TapGestureRecognizer)lblExcluir.GestureRecognizers[0];
-            Vagas vaga = tapGest.CommandParameter as Vagas;
 
-            DataBase database = new DataBase();
-            database.Exclusao(vaga);
-            ConsultarVagas();
-        }
         public void PesquisarAction(object sender, TextChangedEventArgs args)
         {
             ListarVagas.ItemsSource = Lista.Where(a => a.NomeVaga.Contains(args.NewTextValue)).ToList();
