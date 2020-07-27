@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.View.Inicio">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nome do Grupo1" />
+            <Entry Placeholder="Opcional"/>
+            <Label Text="Nome do Grupo2" />
+            <Entry Placeholder="Opcional"/>
+            <Label Text="Nivel" />
+            <Picker>
+                <Picker.Items>
+                    <x:String>Aleatório</x:String>
+                    <x:String>Fácil</x:String>
+                    <x:String>Médio</x:String>
+                    <x:String>Difíssil</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Tempo de cada Palavra(seg.)" />
+            <Entry Placeholder="Opcional"/>
+            <Label Text="Quantidade de Rodadas" />
+            <Entry Text="10"/>
+            <Label Text="Rodadas" />
+            <Entry Text="7"/>
+
+            <Button Text="Iniciar"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

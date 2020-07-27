@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.View.Jogo">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Grupo"/>
+                <Label Text="Palavra - Pontuação (1)"/>
+                <Label Text="***********" HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Mostrar"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="200" FontSize="100" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Seg" HorizontalOptions="CenterAndExpand"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Acertou" BackgroundColor="LightGreen" />
+                    <Button Text="Errou" BackgroundColor="OrangeRed" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Iniciar"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
